@@ -30,7 +30,7 @@ end
 
 local categories = {
   {
-    name = "NVDA - General Navigation",
+    name = "NVDA Navigations",
     keys = {
       {key = "1. NVDA + N", desc = "Open NVDA main menu"},
       {key = "2. NVDA + Q", desc = "Exit NVDA"},
@@ -65,7 +65,7 @@ local categories = {
     }
   },
   {
-    name = "JAWS - General Navigation",
+    name = "JAWS Navigations",
     keys = {
       {key = "1. Insert + J", desc = "Open JAWS main window"},
       {key = "2. Insert + F4", desc = "Exit JAWS"},
