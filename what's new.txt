@@ -1,1 +1,2 @@
-We've fixed the bug in the user interface
+The official launch is here!
+You can now easily download this extension from jieshuo's server
