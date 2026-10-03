@@ -60,7 +60,7 @@ local function enableBackKey(view, onBackFn)
 end
 
 updater.config = {
-  CURRENT_VERSION = "1.2",
+  CURRENT_VERSION = "1.3",
   VERSION_URL = "https://raw.githubusercontent.com/Mahadeesh18/ComputerShortcuts/main/virgin.txt",
   WHATSNEW_URL = "https://raw.githubusercontent.com/Mahadeesh18/ComputerShortcuts/main/what's%20new.txt",
   ZIP_URL = "https://github.com/Mahadeesh18/ComputerShortcuts/archive/refs/heads/main.zip",
