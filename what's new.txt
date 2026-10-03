@@ -1,2 +1,3 @@
-The official launch is here!
-You can now easily download this extension from jieshuo's server
+A back button has been implemented within each window of the Computer Shortcuts section, and an exit button has been added to the main dashboard.
+An additional shortcut category will be introduced in the upcoming update.
+Thank you for your valuable feedback and continued support.
