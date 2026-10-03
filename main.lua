@@ -591,6 +591,24 @@ local function openCategoryWindow(catData)
   local subDl = AlertDialog.Builder(context)
   subDl.setView(subLayoutView)
   local subDialog = subDl.create()
+
+  -- Bottom Right Back Button Layout Setup
+  local bottomLayout = LinearLayout(context)
+  bottomLayout.setOrientation(LinearLayout.HORIZONTAL)
+  bottomLayout.setGravity(Gravity.RIGHT)
+  bottomLayout.setPadding(0, 10, 0, 0)
+
+  local btnBack = Button(context)
+  btnBack.setText("Back")
+  btnBack.setTextSize(12)
+  btnBack.setOnClickListener(View.OnClickListener{
+    onClick = function()
+      subDialog.dismiss()
+    end
+  })
+  bottomLayout.addView(btnBack)
+  subLayoutView.addView(bottomLayout)
+
   subDialog.getWindow().setType(getSafeWindowType())
   subDialog.show()
 end
@@ -599,59 +617,77 @@ end
 -- MAIN MENU WINDOW
 -- ============================================
 
-local mainLayoutView = LinearLayout(context)
-mainLayoutView.setOrientation(LinearLayout.VERTICAL)
-mainLayoutView.setPadding(20, 20, 20, 20)
-
-local mainTitle = TextView(context)
-mainTitle.setText("COMPUTER SHORTCUTS")
-mainTitle.setTextSize(16)
-mainTitle.setGravity(Gravity.CENTER)
-mainTitle.setTextColor(Color.parseColor("#FF6B35"))
-mainTitle.setTypeface(Typeface.DEFAULT_BOLD)
-mainLayoutView.addView(mainTitle)
-
-local subTitle = TextView(context)
-subTitle.setText("Created By Mahadeesh")
-subTitle.setTextSize(12)
-subTitle.setGravity(Gravity.CENTER)
-subTitle.setTextColor(Color.parseColor("#008800"))
-subTitle.setPadding(0, 0, 0, 15)
-mainLayoutView.addView(subTitle)
-
-local scrollMain = ScrollView(context)
-local buttonContainer = LinearLayout(context)
-buttonContainer.setOrientation(LinearLayout.VERTICAL)
-scrollMain.addView(buttonContainer)
-
-local scrollParams = LinearLayout.LayoutParams(
-  LinearLayout.LayoutParams.MATCH_PARENT, 0, 1
-)
-scrollMain.setLayoutParams(scrollParams)
-mainLayoutView.addView(scrollMain)
-
--- Dynamic Button Generation for 11 Categories in Main Window
-for i, cat in ipairs(categories) do
-  local btn = Button(context)
-  btn.setText(cat.name)
-  btn.setTextSize(12)
-  btn.setLayoutParams(LinearLayout.LayoutParams(
-    LinearLayout.LayoutParams.MATCH_PARENT,
-    LinearLayout.LayoutParams.WRAP_CONTENT
-  ))
-  btn.setOnClickListener(View.OnClickListener{
-    onClick = function()
-      openCategoryWindow(cat)
-    end
-  })
-  buttonContainer.addView(btn)
-end
-
 -- Main Dialog-ஐ திறக்கும் ஃபங்ஷன்
 local function showMainMenu()
+  local mainLayoutView = LinearLayout(context)
+  mainLayoutView.setOrientation(LinearLayout.VERTICAL)
+  mainLayoutView.setPadding(20, 20, 20, 20)
+
+  local mainTitle = TextView(context)
+  mainTitle.setText("COMPUTER SHORTCUTS")
+  mainTitle.setTextSize(16)
+  mainTitle.setGravity(Gravity.CENTER)
+  mainTitle.setTextColor(Color.parseColor("#FF6B35"))
+  mainTitle.setTypeface(Typeface.DEFAULT_BOLD)
+  mainLayoutView.addView(mainTitle)
+
+  local subTitle = TextView(context)
+  subTitle.setText("Created By Mahadeesh")
+  subTitle.setTextSize(12)
+  subTitle.setGravity(Gravity.CENTER)
+  subTitle.setTextColor(Color.parseColor("#008800"))
+  subTitle.setPadding(0, 0, 0, 15)
+  mainLayoutView.addView(subTitle)
+
+  local scrollMain = ScrollView(context)
+  local buttonContainer = LinearLayout(context)
+  buttonContainer.setOrientation(LinearLayout.VERTICAL)
+  scrollMain.addView(buttonContainer)
+
+  local scrollParams = LinearLayout.LayoutParams(
+    LinearLayout.LayoutParams.MATCH_PARENT, 0, 1
+  )
+  scrollMain.setLayoutParams(scrollParams)
+  mainLayoutView.addView(scrollMain)
+
+  -- Dynamic Button Generation for 11 Categories in Main Window
+  for i, cat in ipairs(categories) do
+    local btn = Button(context)
+    btn.setText(cat.name)
+    btn.setTextSize(12)
+    btn.setLayoutParams(LinearLayout.LayoutParams(
+      LinearLayout.LayoutParams.MATCH_PARENT,
+      LinearLayout.LayoutParams.WRAP_CONTENT
+    ))
+    btn.setOnClickListener(View.OnClickListener{
+      onClick = function()
+        openCategoryWindow(cat)
+      end
+    })
+    buttonContainer.addView(btn)
+  end
+
   local mainDl = AlertDialog.Builder(context)
   mainDl.setView(mainLayoutView)
   local mainDialog = mainDl.create()
+
+  -- Bottom Right Exit Button Layout Setup (Matching Back Button Layout)
+  local bottomLayout = LinearLayout(context)
+  bottomLayout.setOrientation(LinearLayout.HORIZONTAL)
+  bottomLayout.setGravity(Gravity.RIGHT)
+  bottomLayout.setPadding(0, 10, 0, 0)
+
+  local btnExit = Button(context)
+  btnExit.setText("Exit")
+  btnExit.setTextSize(12)
+  btnExit.setOnClickListener(View.OnClickListener{
+    onClick = function()
+      mainDialog.dismiss()
+    end
+  })
+  bottomLayout.addView(btnExit)
+  mainLayoutView.addView(bottomLayout)
+
   mainDialog.getWindow().setType(getSafeWindowType())
   mainDialog.show()
 end
