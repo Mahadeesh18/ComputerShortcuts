@@ -1,3 +1,5 @@
-A back button has been implemented within each window of the Computer Shortcuts section, and an exit button has been added to the main dashboard.
-An additional shortcut category will be introduced in the upcoming update.
-Thank you for your valuable feedback and continued support.
+1. Added an "Explore" button to the main menu for quick access to more options.
+2. Introduced the "Explore" window, featuring buttons for "Settings" and "Send Feedback to Developer."
+3. Created a "Settings" window with toggles for "Tone Generator Sound" and "Vibration Effect," along with "Cancel" and "Save" buttons.
+4. Redesigned the "Send Feedback" window for improved UI and easier communication with the developer.
+5. Implemented code encryption to protect the source code from unauthorized access.
